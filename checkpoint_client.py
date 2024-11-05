@@ -10,7 +10,7 @@ def parse_args():
 
     parser.add_argument("--server-ip", type=str, default="127.0.0.1",
                         help="Server IP Address for RPC Checkpoint Server")
-    parser.add_argument("-p", "--port", type=str, default=8000,
+    parser.add_argument("-p", "--port", type=str, default=8080,
                         help="Port number for RPC Checkpoint Server")
     parser.add_argument("--num-steps", type=int, default=1,
                         help="Number of steps to simulate")

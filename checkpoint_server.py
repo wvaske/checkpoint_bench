@@ -83,6 +83,14 @@ class DLIOCheckpointRPCServer:
             self.dlio_args.checkpoint_type = CheckpointLocationType.ALL_RANKS
             self.dlio_args.pipeline_parallelism = 2
             self.dlio_args.tensor_parallelism = 4
+        elif model == "llama3-7b":
+            self.dlio_args.num_layers = 80
+            self.dlio_args.model_size = 16384
+            self.dlio_args.optimization_groups = [1_009_254_4, 865_075_2, 793_6]
+            self.dlio_args.layer_parameters = [4_358_152_1, 704_347_8]
+            self.dlio_args.checkpoint_type = CheckpointLocationType.ALL_RANKS
+            self.dlio_args.pipeline_parallelism = 2
+            self.dlio_args.tensor_parallelism = 4
 
         self.comm.Barrier()
         self.checkpoint_mechanism = CheckpointingFactory.get_mechanism(CheckpointMechanismType.PT_SAVE)
